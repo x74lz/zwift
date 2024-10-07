@@ -40,17 +40,20 @@ msgbox() {
 # Config early to allow setting of startup env files.
 # More ease of use starting from desktop icon.
 
+
 # Check for other zwift configuration, sourced here and passed on to container aswell
-if [[ -f "$HOME/.config/zwift/config" ]]; then
-    ZWIFT_CONFIG_FLAG="--env-file $HOME/.config/zwift/config"
-    source $HOME/.config/zwift/config
+ZWIFT_DIR="$HOME/.config/zwift"
+
+if [[ -f "$ZWIFT_DIR/config" ]]; then
+    ZWIFT_CONFIG_FLAG="--env-file $ZWIFT_DIR/config"
+    source $ZWIFT_DIR/config
 fi
 
 # Check for $USER specific zwift configuration, sourced here and passed on to container aswell
-if [[ -f "$HOME/.config/zwift/$USER-config" ]]
+if [[ -f "$ZWIFT_DIR/$USER-config" ]]
 then
-    ZWIFT_USER_CONFIG_FLAG="--env-file $HOME/.config/zwift/$USER-config"
-    source $HOME/.config/zwift/$USER-config
+    ZWIFT_USER_CONFIG_FLAG="--env-file $ZWIFT_DIR/$USER-config"
+    source $ZWIFT_DIR/$USER-config
 fi
 
 # If a workout directory is specified then map to that directory.
@@ -209,6 +212,14 @@ then
     ZWIFT_FG_FLAG=(-it) # run in fg
 else 
     ZWIFT_FG_FLAG=(-d) # run in bg
+fi
+
+# Setup zwift for zoffline 
+if [[ $ZOFFLINE -eq "1" ]]
+then
+    if [[ ! -f "$ZWIFT_DIR/cert-zoffline.pem" ]]; then
+        curl -o $ZWIFT_DIR/cert-zoffline.pem -s https://raw.githubusercontent.com/zoffline/zwift-offline/master/ssl/cert-zwift-com.pem
+    fi
 fi
 
 # Setup Flags for Window Managers
