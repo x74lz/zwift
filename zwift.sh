@@ -220,6 +220,14 @@ then
     if [[ ! -f "$ZWIFT_DIR/cert-zoffline.pem" ]]; then
         curl -o $ZWIFT_DIR/cert-zoffline.pem -s https://raw.githubusercontent.com/zoffline/zwift-offline/master/ssl/cert-zwift-com.pem
     fi
+
+    ZOFFLINE_IP=${ZOFFLINE_IP:-127.0.0.1}
+    ZOFFLINE_HOST_FLAGS=(
+        --add-host=cdn.zwift.com:$ZOFFLINE_IP
+        --add-host=secure.zwift.com:$ZOFFLINE_IP
+        --add-host=us-or-rly101.zwift.com:$ZOFFLINE_IP
+        --add-host=launcher.zwift.com:$ZOFFLINE_IP
+    )
 fi
 
 # Setup Flags for Window Managers
@@ -273,6 +281,7 @@ CONTAINER=$($CONTAINER_TOOL run ${GENERAL_FLAGS[@]} \
         $ZWIFT_CONFIG_FLAG \
         $ZWIFT_USER_CONFIG_FLAG \
         $ZWIFT_WORKOUT_VOL \
+        ${ZOFFLINE_HOST_FLAGS[@]} \
         $VGA_DEVICE_FLAG \
         ${DBUS_CONFIG_FLAGS[@]} \
         ${WM_FLAGS[@]} \
