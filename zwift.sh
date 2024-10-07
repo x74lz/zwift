@@ -228,6 +228,7 @@ then
         --add-host=us-or-rly101.zwift.com:$ZOFFLINE_IP
         --add-host=launcher.zwift.com:$ZOFFLINE_IP
     )
+    echo "- $ZOFFLINE_IP"
 fi
 
 # Setup Flags for Window Managers
