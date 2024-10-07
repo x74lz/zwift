@@ -229,7 +229,8 @@ then
         --add-host=launcher.zwift.com:$ZOFFLINE_IP
     )
 
-    echo "ZOFFLINE ACTIVE - SERVER@$ZOFFLINE_IP"
+    msgbox warning "ZOFFLINE ACTIVE - SERVER :: $ZOFFLINE_IP" 2
+    #echo "ZOFFLINE ACTIVE - SERVER@$ZOFFLINE_IP"
 fi
 
 # Setup Flags for Window Managers
