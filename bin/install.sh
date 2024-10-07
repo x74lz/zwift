@@ -8,14 +8,14 @@ echo "This will install zwift.sh into /usr/local/bin"
 read -p "Press enter to continue"
 
 mkdir -p /usr/local/bin
-curl -s -o /usr/local/bin/zwift https://raw.githubusercontent.com/netbrain/zwift/master/zwift.sh
+curl -s -o /usr/local/bin/zwift https://raw.githubusercontent.com/x74lz/zwift/master/zwift.sh
 chmod +x /usr/local/bin/zwift
 
 mkdir -p /usr/local/share/icons/hicolor/scalable/apps
-curl -s -o /usr/local/share/icons/hicolor/scalable/apps/zwift.svg https://raw.githubusercontent.com/netbrain/zwift/master/assets/hicolor/scalable/apps/Zwift%20Logogram.svg
+curl -s -o /usr/local/share/icons/hicolor/scalable/apps/zwift.svg https://raw.githubusercontent.com/x74lz/zwift/master/assets/hicolor/scalable/apps/Zwift%20Logogram.svg
 
 mkdir -p /usr/local/share/applications
-curl -s -o /usr/local/share/applications/Zwift.desktop https://raw.githubusercontent.com/netbrain/zwift/master/assets/Zwift.desktop
+curl -s -o /usr/local/share/applications/Zwift.desktop https://raw.githubusercontent.com/x74lz/zwift/master/assets/Zwift.desktop
 
 
 if [ "$(echo $PATH | grep /usr/local/bin)" = "" ]; then
