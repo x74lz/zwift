@@ -217,10 +217,6 @@ fi
 # Setup zwift for connecting to zoffline server 
 if [[ $ZOFFLINE -eq "1" ]]
 then
-    #if [[ ! -f "$ZWIFT_DIR/cert-zoffline.pem" ]]; then
-    #    curl -o $ZWIFT_DIR/cert-zoffline.pem -s https://raw.githubusercontent.com/zoffline/zwift-offline/master/ssl/cert-zwift-com.pem
-    #fi
-
     ZOFFLINE_IP=${ZOFFLINE_IP:-127.0.0.1}
     ZOFFLINE_HOST_FLAGS=(
         --add-host=cdn.zwift.com:$ZOFFLINE_IP
