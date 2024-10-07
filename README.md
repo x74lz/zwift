@@ -23,7 +23,7 @@ If you find this image useful, then feel free add [me on zwift](https://www.zwif
 
 ## Install
 ```console
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/netbrain/zwift/master/bin/install.sh)"
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/x74lz/zwift/master/bin/install.sh)"
 ```
 This will put the `zwift.sh` script on your `$PATH`, add a desktop icon to /usr/local/share/applications.
 NOTE: Icon may not show until logging off and back in.
