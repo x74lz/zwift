@@ -229,7 +229,7 @@ then
         --add-host=launcher.zwift.com:$ZOFFLINE_IP
     )
 
-    msgbox warning "Connect to ZOFFLINE SERVER :: $ZOFFLINE_IP" 0
+    msgbox warning "Connect to ZOFFLINE SERVER :: $ZOFFLINE_IP" 1
 fi
 
 # Setup Flags for Window Managers
