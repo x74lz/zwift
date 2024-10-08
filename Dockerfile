@@ -74,14 +74,14 @@ ENV NVIDIA_DRIVER_CAPABILITIES=all
 ENV WINEDEBUG=fixme-all
 
 # Install zoffline self-signed certificate
-RUN mkdir -p /home/user/.config/zoffline
+RUN mkdir /tmp/.zoffline
 RUN \
   wget \
   https://raw.githubusercontent.com/zoffline/zwift-offline/master/ssl/cert-zwift-com.pem \
-  -O /home/user/.config/zoffline/cert-zwift-com.pem
-RUN openssl x509 -in /home/user/.config/zoffline/cert-zwift-com.pem -inform PEM -out /home/user/.config/zoffline/cert-zwift-com.crt
+  -O /tmp/.zoffline/cert-zwift-com.pem
+RUN openssl x509 -in /tmp/.zoffline/cert-zwift-com.pem -inform PEM -out /tmp/.zoffline/cert-zwift-com.crt
 RUN mkdir /usr/local/share/ca-certificates/extra
-RUN mv /home/user/.config/zoffline/cert-zwift-com.crt /usr/local/share/ca-certificates/extra
+RUN mv /tmp/.zoffline/cert-zwift-com.crt /usr/local/share/ca-certificates/extra
 RUN update-ca-certificates
 
 LABEL org.opencontainers.image.authors="Kim Eik <kim@heldig.org>"
