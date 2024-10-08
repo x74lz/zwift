@@ -2,8 +2,6 @@ ARG DEBIAN_VERSION=trixie
 
 FROM rust:1.72 as build-runfromprocess
 
-USER root
-
 RUN apt update && apt upgrade -y
 RUN apt install -y g++-mingw-w64-x86-64 git
 
@@ -78,7 +76,7 @@ ENV WINEDEBUG=fixme-all
 # Install zoffline self-signed certificate
 RUN mkdir /tmp/.zoffline
 RUN \
-  wget \
+  wget -q \
   https://raw.githubusercontent.com/zoffline/zwift-offline/master/ssl/cert-zwift-com.pem \
   -O /tmp/.zoffline/cert-zwift-com.pem
 RUN openssl x509 -in /tmp/.zoffline/cert-zwift-com.pem -inform PEM -out /tmp/.zoffline/cert-zwift-com.crt
