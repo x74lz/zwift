@@ -14,6 +14,7 @@ then
     $ZOFFLINE_CERT=$(cat /tmp/.zoffline/cert-zwift-com.pem)
     if ! cat $ZWIFT_HOME/data/cacert.pem | grep -q $ZOFFLINE_CERT; then
         echo $ZOFFLINE_CERT >> $ZWIFT_HOME/data/cacert.pem
+        echo "zoffline self-certificate copied"
     fi
 fi
 
