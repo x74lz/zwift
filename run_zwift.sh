@@ -11,9 +11,9 @@ fi
 
 if [[ $ZOFFLINE -eq "1" ]]
 then
-    $ZOFFLINE_CERT=$(cat $HOME/.config/zoffline/cert-zwift-com.pem)
+    $ZOFFLINE_CERT=$(cat /tmp/.zoffline/cert-zwift-com.pem)
     if ! cat $ZWIFT_HOME/data/cacert.pem | grep -q $ZOFFLINE_CERT; then
-        $ZOFFLINE_CERT >> $ZWIFT_HOME/data/cacert.pem
+        echo $ZOFFLINE_CERT >> $ZWIFT_HOME/data/cacert.pem
     fi
 fi
 
