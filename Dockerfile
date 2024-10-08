@@ -74,7 +74,7 @@ ENV NVIDIA_DRIVER_CAPABILITIES=all
 ENV WINEDEBUG=fixme-all
 
 # Install zoffline self-signed certificate
-RUN mkdir /home/user/.config/zoffline
+RUN mkdir -p /home/user/.config/zoffline
 RUN \
   wget \
   https://raw.githubusercontent.com/zoffline/zwift-offline/master/ssl/cert-zwift-com.pem \
